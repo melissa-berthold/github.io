@@ -3,10 +3,176 @@
 <head>
   <meta charset="UTF-8" />
   <title>Melissa Berthold | Technical Writing Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #f7f9fb;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0b4f6c;
+      color: white;
+      padding: 40px 20px 30px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      margin-top: 8px;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      margin-top: 18px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      color: #0b4f6c;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      border: 1px solid #dde5ec;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      color: #0b4f6c;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #e8eef2;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Melissa Berthold</h1>
-  <p>Technical Writer · Training · Documentation</p>
-  <p>Site under construction.</p>
+  <header>
+    <h1>Melissa Berthold</h1>
+    <p class="tagline">
+      Senior Technical Writer · IT Infrastructure · Networking · Systems Operations
+    </p>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Portfolio</a>
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Welcome</h2>
+      <p>
+        I specialize in creating clear, structured documentation for complex IT environments.
+        My work spans infrastructure, networking, systems operations, and enterprise platforms—
+        translating technical detail into practical, usable guidance. I develop process
+        documentation, SOPs, runbooks, training materials, and cross-functional content that
+        supports engineering, product, and operations teams.
+      </p>
+    </section>
+
+    <section>
+      <h2>Featured work</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Infrastructure & Operations Documentation</h3>
+          <p class="meta">Runbooks · SOPs · Incident workflows</p>
+          <p>
+            Examples of structured, step-by-step documentation that supports network operations,
+            infrastructure teams, and on-call engineers in high-availability environments.
+          </p>
+        </div>
+        <div class="card">
+          <h3>System & Platform Guides</h3>
+          <p class="meta">Admin guides · Configuration · User workflows</p>
+          <p>
+            Documentation that explains how to deploy, configure, and operate complex systems,
+            with a focus on clarity, risk reduction, and repeatability.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Training & Enablement Content</h3>
+          <p class="meta">Onboarding · How-to content · Reference material</p>
+          <p>
+            Training assets that help new and existing team members understand systems faster,
+            adopt new processes, and perform work with confidence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What I focus on</h2>
+      <ul>
+        <li>IT infrastructure, networking, and systems operations documentation</li>
+        <li>Process documentation, SOPs, and runbooks for technical teams</li>
+        <li>Clear, reusable patterns for complex, cross-functional environments</li>
+        <li>Training and onboarding content for technical and non-technical audiences</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Melissa Berthold — Technical Writing Portfolio
+  </footer>
 </body>
 </html>
