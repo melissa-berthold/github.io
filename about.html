@@ -1,410 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>About | Melissa Berthold</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --bg-deep: #020817;
-      --bg-card: rgba(7, 16, 32, 0.92);
-      --bg-card-soft: rgba(10, 22, 46, 0.9);
-      --accent-sand: #f4d7a1;
-      --accent-blue: #4fb3ff;
-      --accent-coral: #ff9b7a;
-      --text-main: #f9fafb;
-      --text-muted: #cbd5f5;
-      --border-subtle: rgba(148, 163, 184, 0.35);
-      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.85);
-      --radius-lg: 18px;
-      --radius-pill: 999px;
-      --content-max: 1120px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About • Melissa Berthold</title>
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<style>
+/* ------------------------------
+   GLOBAL RESET + BASE STYLES
+--------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-      background: radial-gradient(circle at top, #0b1220 0, #020617 45%, #000 100%);
-      color: var(--text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #f7f9fb;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
 
-    /* TOP NAV */
-    nav.top-nav {
-      width: 100%;
-      padding: 16px 24px;
-      display: flex;
-      justify-content: center;
-      background: rgba(2, 8, 23, 0.7);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-    }
+/* ------------------------------
+   TOP NAVIGATION (C-LAYOUT)
+--------------------------------*/
+nav {
+  width: 100%;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #e5e5e5;
+}
 
-    nav.top-nav ul {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-      font-size: 14px;
-    }
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  padding: 1rem 3rem;
+  list-style: none;
+}
 
-    nav.top-nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: 0.2s ease;
-    }
+nav a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
 
-    nav.top-nav a:hover {
-      color: var(--accent-sand);
-    }
+nav a:hover {
+  color: #2a6f97;
+}
 
-    /* PAGE LAYOUT */
-    main {
-      display: flex;
-      justify-content: center;
-      padding: 32px 16px 64px;
-    }
+/* ------------------------------
+   HEADER BLOCK
+--------------------------------*/
+.header {
+  max-width: 900px;
+  margin: 4rem auto 3rem auto;
+  padding: 2rem;
+  text-align: left;
+}
 
-    .page-shell {
-      width: 100%;
-      max-width: var(--content-max);
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 32px;
-      position: relative;
-    }
+.headshot {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #dbe7f0, #bcd2e8);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #2a4d69;
+  margin-bottom: 1.2rem;
+}
 
-    /* LEFT MINI PANEL */
-    .left-panel {
-      position: sticky;
-      top: 100px;
-      align-self: start;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      padding-right: 8px;
-    }
+.header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.3rem;
+}
 
-    .left-panel button {
-      background: transparent;
-      border: none;
-      text-align: left;
-      padding: 8px 10px;
-      border-radius: var(--radius-pill);
-      color: var(--text-muted);
-      font-size: 13px;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
+.header h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #4a6fa5;
+  margin-bottom: 0.5rem;
+}
 
-    .left-panel button.active {
-      background: radial-gradient(circle, rgba(244, 215, 161, 0.18), rgba(79, 179, 255, 0.18));
-      color: var(--accent-sand);
-    }
+.header p.tagline {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.2rem;
+}
 
-    /* MOBILE LEFT PANEL */
-    .mobile-sections {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 40;
-    }
+.header p.description {
+  font-size: 1.1rem;
+  max-width: 700px;
+  color: #333;
+}
 
-    .mobile-sections button {
-      padding: 10px 16px;
-      border-radius: var(--radius-pill);
-      border: none;
-      background: radial-gradient(circle at top left, #f4d7a1, #4fb3ff);
-      color: #020617;
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-      cursor: pointer;
-    }
+/* ------------------------------
+   SECTION WRAPPER
+--------------------------------*/
+.section {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  position: relative;
+}
 
-    /* HEADER CARD */
-    .about-header {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      border-radius: var(--radius-lg);
-      padding: 18px 20px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 16px;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-    }
+/* ------------------------------
+   SECTION ARROWS (HYBRID C + D)
+--------------------------------*/
+.arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  opacity: 0.45;
+  background: linear-gradient(135deg, #bcd2e8, #dbe7f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 0.25s ease;
+}
 
-    .headshot-wrap {
-      width: 84px;
-      height: 84px;
-      border-radius: 50%;
-      padding: 2px;
-      background: radial-gradient(circle at top, #f4d7a1, #4fb3ff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-    }
+.arrow:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
 
-    .headshot-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: #020617;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent-sand);
-      font-weight: 600;
-      font-size: 26px;
-    }
+.arrow.up {
+  bottom: 55px;
+}
 
-    .name-row h1 {
-      font-size: 24px;
-      font-weight: 650;
-    }
+/* ------------------------------
+   TWO-COLUMN LISTS
+--------------------------------*/
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
 
-    .wave-tag {
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      background: linear-gradient(120deg, #f4d7a1, #ffbfa0);
-      color: #0b1220;
-    }
+.columns ul {
+  list-style: none;
+}
 
-    /* CONTENT CARD */
-    .about-card {
-      background: var(--bg-card-soft);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 20px;
-      box-shadow: var(--shadow-soft);
-    }
+.columns li {
+  margin-bottom: 0.6rem;
+  padding-left: 1rem;
+  position: relative;
+}
 
-    .section {
-      padding: 14px 0;
-    }
+.columns li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #2a6f97;
+}
 
-    .section + .section {
-      border-top: 1px solid rgba(148, 163, 184, 0.28);
-    }
+/* ------------------------------
+   MOBILE RESPONSIVE
+--------------------------------*/
+@media (max-width: 700px) {
+  nav ul {
+    justify-content: center;
+    gap: 1.2rem;
+    padding: 1rem;
+  }
 
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-      font-size: 15px;
-    }
+  .columns {
+    grid-template-columns: 1fr;
+  }
 
-    .section-title {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent-sand);
-    }
+  .arrow {
+    right: 12px;
+  }
+}
+</style>
 
-    .two-col-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 6px 24px;
-      list-style: none;
-    }
-
-    .two-col-list li {
-      padding-left: 14px;
-      position: relative;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .two-col-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.6em;
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: radial-gradient(circle, #f4d7a1, #ff9b7a);
-    }
-
-    /* FOOTER */
-    footer {
-      max-width: var(--content-max);
-      margin: 0 auto;
-      padding: 10px 4px;
-      text-align: right;
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .page-shell {
-        grid-template-columns: 1fr;
-      }
-      .left-panel {
-        display: none;
-      }
-      .mobile-sections {
-        display: block;
-      }
-      .two-col-list {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+<script>
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+</script>
 </head>
 
 <body>
 
-  <!-- TOP NAV -->
-  <nav class="top-nav">
+<!-- TOP NAV -->
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html" style="color:#2a6f97;font-weight:600;">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="headshot">MB</div>
+  <h1>Melissa Berthold</h1>
+  <h2>Coastal systems</h2>
+  <p class="tagline">Senior Technical Writer · Architecture-to-operations clarity and systems storytelling</p>
+  <p class="description">
+    I design documentation ecosystems that help teams understand, align, and deliver.
+  </p>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section" id="sec1">
+  <h2>🧩 What I Do</h2>
+  <p>I build documentation systems that reduce friction, increase clarity, and support engineering, operations, and cross-functional teams.</p>
+
+  <div class="columns">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="about.html" style="color: var(--accent-sand);">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li>Systems documentation</li>
+      <li>Infrastructure & operations clarity</li>
+      <li>Runbooks & SOPs</li>
+      <li>Cross-functional alignment</li>
     </ul>
-  </nav>
+    <ul>
+      <li>Knowledge architecture</li>
+      <li>Platform onboarding</li>
+      <li>Process mapping</li>
+      <li>Enterprise documentation strategy</li>
+    </ul>
+  </div>
 
-  <main id="top">
-    <div class="page-shell">
+  <div class="arrow down" onclick="scrollToSection('sec2')">↓</div>
+</div>
 
-      <!-- LEFT MINI PANEL -->
-      <aside class="left-panel">
-        <button data-target="about" class="active">🧩 About</button>
-        <button data-target="core-strengths">⚙️ Core strengths</button>
-        <button data-target="how-i-work">💡 How I work</button>
-        <button data-target="special-capabilities">✨ Special capabilities</button>
-      </aside>
+<!-- SECTION 2 -->
+<div class="section" id="sec2">
+  <h2>⚙️ How I Work</h2>
+  <p>I bring structure, calm, and operational clarity to complex environments.</p>
 
-      <!-- MOBILE SECTIONS BUTTON -->
-      <div class="mobile-sections">
-        <button id="mobile-sections-btn">Sections ▾</button>
-      </div>
+  <div class="columns">
+    <ul>
+      <li>Systems-first thinking</li>
+      <li>Operational empathy</li>
+      <li>Cross-team facilitation</li>
+      <li>Documentation governance</li>
+    </ul>
+    <ul>
+      <li>Editorial precision</li>
+      <li>Information modeling</li>
+      <li>Process refinement</li>
+      <li>Scalable content patterns</li>
+    </ul>
+  </div>
 
-      <!-- MAIN CONTENT -->
-      <section class="about-column" id="content-start">
+  <div class="arrow up" onclick="scrollToSection('sec1')">↑</div>
+  <div class="arrow down" onclick="scrollToSection('sec3')">↓</div>
+</div>
 
-        <header class="about-header">
-          <div class="headshot-wrap"><div class="headshot-inner">MB</div></div>
-          <div>
-            <div class="name-row">
-              <h1>Melissa Berthold</h1>
-              <span class="wave-tag">Coastal systems</span>
-            </div>
-            <p class="role-line">
-              Senior Technical Writer · <span>Architecture-to-operations clarity and systems storytelling</span>
-            </p>
-            <p class="about-subline">I design documentation ecosystems that help teams understand, align, and deliver.</p>
-          </div>
-        </header>
+<!-- SECTION 3 -->
+<div class="section" id="sec3">
+  <h2>💡 What I Bring</h2>
+  <p>My work blends technical depth with editorial clarity.</p>
 
-        <article class="about-card">
+  <div class="columns">
+    <ul>
+      <li>Enterprise documentation</li>
+      <li>Platform & infrastructure knowledge</li>
+      <li>Systems mapping</li>
+      <li>Cross-functional communication</li>
+    </ul>
+    <ul>
+      <li>UX-informed content design</li>
+      <li>Process optimization</li>
+      <li>Training & enablement</li>
+      <li>Operational storytelling</li>
+    </ul>
+  </div>
 
-          <!-- ABOUT -->
-          <section class="section" id="about">
-            <div class="section-header">🧩 <h2 class="section-title">About</h2></div>
-            <ul class="two-col-list">
-              <li>Senior technical writer specializing in complex systems and enterprise platforms.</li>
-              <li>Transforms architecture and SME input into clear, durable documentation.</li>
-              <li>Works comfortably across engineering, product, and operations.</li>
-              <li>Known for calm, structured communication in ambiguous environments.</li>
-              <li>Builds documentation systems that scale: templates, standards, and patterns.</li>
-              <li>Strong at bridging conceptual designs with implementation realities.</li>
-              <li>Writes for clarity, reuse, and decision-making.</li>
-              <li>Anchored in accountability, traceability, and thoughtful structure.</li>
-            </ul>
-          </section>
+  <div class="arrow up" onclick="scrollToSection('sec2')">↑</div>
+  <div class="arrow down" onclick="scrollToSection('sec4')">↓</div>
+</div>
 
-          <!-- CORE STRENGTHS -->
-          <section class="section" id="core-strengths">
-            <div class="section-header">⚙️ <h2 class="section-title">Core strengths</h2></div>
-            <ul class="two-col-list">
-              <li>Architecture-to-operations documentation</li>
-              <li>Systems thinking</li>
-              <li>Information design</li>
-              <li>Stakeholder alignment</li>
-              <li>Content governance</li>
-              <li>Risk-aware communication</li>
-              <li>Pattern spotting</li>
-              <li>Calm execution</li>
-            </ul>
-          </section>
+<!-- SECTION 4 -->
+<div class="section" id="sec4">
+  <h2>✨ What I Value</h2>
+  <p>Clarity, calm, and systems thinking guide my work.</p>
 
-          <!-- HOW I WORK -->
-          <section class="section" id="how-i-work">
-            <div class="section-header">💡 <h2 class="section-title">How I work</h2></div>
-            <ul class="two-col-list">
-              <li>Start with the system</li>
-              <li>Clarify the audience</li>
-              <li>Ask practical, grounding questions</li>
-              <li>Design the container before filling it</li>
-              <li>Write for reuse and scale</li>
-              <li>Collaborate closely with SMEs</li>
-              <li>Iterate with intent</li>
-              <li>Measure impact and clarity</li>
-            </ul>
-          </section>
+  <div class="columns">
+    <ul>
+      <li>Operational clarity</li>
+      <li>Empathy for users</li>
+      <li>Editorial discipline</li>
+      <li>Cross-team trust</li>
+    </ul>
+    <ul>
+      <li>Scalable systems</li>
+      <li>Intentional design</li>
+      <li>Documentation as infrastructure</li>
+      <li>Coastal calm in complex environments</li>
+    </ul>
+  </div>
 
-          <!-- SPECIAL CAPABILITIES -->
-          <section class="section" id="special-capabilities">
-            <div class="section-header">✨ <h2 class="section-title">Special capabilities</h2></div>
-            <ul class="two-col-list">
-              <li>Cross-domain fluency</li>
-              <li>Content conversion and modernization</li>
-              <li>Executive-ready narratives</li>
-              <li>Process and workflow clarity</li>
-              <li>Template and standard creation</li>
-              <li>Systems mapping</li>
-              <li>Operational alignment</li>
-              <li>Calm in complexity</li>
-            </ul>
-          </section>
-
-        </article>
-      </section>
-    </div>
-  </main>
-
-  <footer><span>Designed by Melissa Berthold</span></footer>
-
-  <script>
-    const navButtons = document.querySelectorAll(".left-panel button");
-    const sections = document.querySelectorAll(".section");
-
-    navButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const target = document.getElementById(btn.dataset.target);
-        target.scrollIntoView({ behavior: "smooth" });
-      });
-    });
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navButtons.forEach(btn =>
-            btn.classList.toggle("active", btn.dataset.target === entry.target.id)
-          );
-        }
-      });
-    }, { threshold: 0.3 });
-
-    sections.forEach(section => observer.observe(section));
-  </script>
+  <div class="arrow up" onclick="scrollToSection('sec3')">↑</div>
+</div>
 
 </body>
 </html>
