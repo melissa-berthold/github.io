@@ -10,9 +10,7 @@
       --bg-card: rgba(7, 16, 32, 0.92);
       --bg-card-soft: rgba(10, 22, 46, 0.9);
       --accent-sand: #f4d7a1;
-      --accent-sand-soft: #f7e4bd;
       --accent-blue: #4fb3ff;
-      --accent-blue-soft: #7fd0ff;
       --accent-coral: #ff9b7a;
       --text-main: #f9fafb;
       --text-muted: #cbd5f5;
@@ -20,77 +18,57 @@
       --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.85);
       --radius-lg: 18px;
       --radius-pill: 999px;
-      --nav-width: 240px;
       --content-max: 1120px;
-      --transition-fast: 0.18s ease-out;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
       background: radial-gradient(circle at top, #0b1220 0, #020617 45%, #000 100%);
       color: var(--text-main);
-      min-height: 100vh;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
     main {
-      min-height: 100vh;
       display: flex;
       justify-content: center;
       padding: 32px 16px 64px;
     }
 
     .page-shell {
-      position: relative;
       width: 100%;
       max-width: var(--content-max);
       display: grid;
       grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
       gap: 32px;
+      position: relative;
     }
 
-    /* Radial glow behind content */
     .page-shell::before {
       content: "";
       position: fixed;
-      inset: auto;
       top: 10%;
       left: 50%;
       width: 720px;
       height: 720px;
       transform: translateX(-50%);
       background: radial-gradient(circle, rgba(79, 179, 255, 0.18), transparent 60%);
-      opacity: 0.9;
-      pointer-events: none;
       z-index: -1;
     }
 
-    /* Left column: header + content */
-    .about-column {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
+    /* Header */
     .about-header {
-      position: relative;
-      padding: 18px 20px 18px 18px;
-      border-radius: var(--radius-lg);
       background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
       border: 1px solid rgba(148, 163, 184, 0.45);
-      box-shadow: var(--shadow-soft);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
       display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-columns: auto 1fr;
       gap: 16px;
-      align-items: center;
-      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      position: relative;
     }
 
     .about-header::before {
@@ -100,13 +78,10 @@
       background:
         radial-gradient(circle at top left, rgba(244, 215, 161, 0.18), transparent 55%),
         radial-gradient(circle at bottom right, rgba(79, 179, 255, 0.16), transparent 55%);
-      opacity: 0.9;
-      pointer-events: none;
       z-index: -1;
     }
 
     .headshot-wrap {
-      position: relative;
       width: 84px;
       height: 84px;
       border-radius: 50%;
@@ -126,103 +101,49 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent-sand-soft);
+      color: var(--accent-sand);
       font-weight: 600;
       font-size: 26px;
-      letter-spacing: 0.06em;
-    }
-
-    .about-heading-block {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .name-row {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      flex-wrap: wrap;
     }
 
     .name-row h1 {
       font-size: 24px;
       font-weight: 650;
-      letter-spacing: 0.03em;
     }
 
     .wave-tag {
-      position: relative;
       padding: 3px 10px;
       border-radius: 999px;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: #0b1220;
       background: linear-gradient(120deg, #f4d7a1, #ffbfa0);
+      color: #0b1220;
     }
 
-    .role-line {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
+    .role-line { font-size: 13px; color: var(--text-muted); }
+    .role-line span { color: var(--accent-blue); }
 
-    .role-line span {
-      color: var(--accent-blue-soft);
-    }
+    .about-subline { font-size: 12px; color: var(--text-muted); }
 
-    .about-subline {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    /* Content card */
+    /* Card */
     .about-card {
-      position: relative;
-      padding: 20px 20px 22px;
-      border-radius: var(--radius-lg);
       background: var(--bg-card-soft);
       border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
       box-shadow: var(--shadow-soft);
-      overflow: hidden;
     }
 
-    .about-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(148, 163, 184, 0.12), transparent 40%);
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    .section {
-      position: relative;
-      padding: 14px 0 16px;
-    }
-
-    .section + .section {
-      border-top: 1px solid rgba(148, 163, 184, 0.28);
-    }
+    .section { padding: 14px 0; }
+    .section + .section { border-top: 1px solid rgba(148, 163, 184, 0.28); }
 
     .section-header {
       display: flex;
       align-items: center;
       gap: 8px;
       margin-bottom: 10px;
-    }
-
-    .section-icon {
-      width: 18px;
-      height: 18px;
-      border-radius: 6px;
-      background: radial-gradient(circle at top, rgba(244, 215, 161, 0.9), rgba(79, 179, 255, 0.9));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: #020617;
-      flex-shrink: 0;
+      font-size: 15px;
     }
 
     .section-title {
@@ -230,26 +151,21 @@
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent-sand-soft);
+      color: var(--accent-sand);
     }
 
-    .section-body {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* Two-column bullets */
     .two-col-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 6px 24px;
-      margin-top: 4px;
       list-style: none;
     }
 
     .two-col-list li {
-      position: relative;
       padding-left: 14px;
+      position: relative;
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
     .two-col-list li::before {
@@ -260,474 +176,172 @@
       width: 6px;
       height: 6px;
       border-radius: 999px;
-      background: radial-gradient(circle at center, #f4d7a1, #ff9b7a);
-      opacity: 0.9;
+      background: radial-gradient(circle, #f4d7a1, #ff9b7a);
     }
 
-    .two-col-list span {
-      color: var(--text-main);
-    }
-
-    .muted {
-      color: var(--text-muted);
-    }
-
-    /* Right column: sticky mini-nav */
-    .nav-column {
-      position: relative;
-    }
-
+    /* Sticky nav */
     .nav-card {
       position: sticky;
       top: 24px;
-      border-radius: var(--radius-lg);
       background: var(--bg-card);
       border: 1px solid rgba(148, 163, 184, 0.5);
+      border-radius: var(--radius-lg);
+      padding: 14px;
       box-shadow: var(--shadow-soft);
-      padding: 14px 14px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
     }
 
-    .nav-label {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .nav-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 13px;
-    }
-
+    .nav-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
     .nav-list button {
-      width: 100%;
-      text-align: left;
-      border: none;
       background: transparent;
-      color: var(--text-muted);
+      border: none;
       padding: 6px 8px;
       border-radius: 999px;
+      color: var(--text-muted);
+      text-align: left;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
-    }
-
-    .nav-list button span {
       font-size: 11px;
-      text-transform: uppercase;
       letter-spacing: 0.16em;
-    }
-
-    .nav-list button .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(148, 163, 184, 0.7);
-      flex-shrink: 0;
+      text-transform: uppercase;
     }
 
     .nav-list button.active {
-      background: radial-gradient(circle at top left, rgba(244, 215, 161, 0.18), rgba(79, 179, 255, 0.18));
-      color: var(--accent-sand-soft);
-      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.6);
-      transform: translateY(-1px);
+      background: radial-gradient(circle, rgba(244, 215, 161, 0.18), rgba(79, 179, 255, 0.18));
+      color: var(--accent-sand);
     }
 
-    .nav-list button.active .dot {
-      background: linear-gradient(135deg, #f4d7a1, #ff9b7a);
-    }
-
-    .nav-footer-note {
-      font-size: 11px;
-      color: var(--text-muted);
-      border-top: 1px solid rgba(148, 163, 184, 0.3);
-      padding-top: 8px;
-      margin-top: 4px;
-    }
-
-    /* Floating mobile nav button */
-    .floating-nav {
-      position: fixed;
-      right: 16px;
-      bottom: 20px;
-      z-index: 40;
-      display: none;
-    }
-
-    .floating-nav button {
-      border: none;
-      border-radius: var(--radius-pill);
-      padding: 8px 14px;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      background: radial-gradient(circle at top left, #f4d7a1, #4fb3ff);
-      color: #020617;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* Jump-to-content arrow */
-    .jump-content {
-      position: fixed;
-      right: 18px;
-      bottom: 70px;
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: radial-gradient(circle at top, rgba(244, 215, 161, 0.16), rgba(15, 23, 42, 0.96));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent-sand-soft);
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-      z-index: 40;
-    }
-
-    .jump-content.visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    .jump-content:hover {
-      transform: translateY(-2px);
-    }
-
-    /* Back-to-top button */
-    .back-to-top {
-      position: fixed;
-      left: 18px;
-      bottom: 20px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: radial-gradient(circle at top, rgba(79, 179, 255, 0.18), rgba(15, 23, 42, 0.96));
-      color: var(--accent-blue-soft);
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      padding: 7px 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-      z-index: 40;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    .back-to-top:hover {
-      transform: translateY(-2px);
-    }
-
-    /* Footer */
     footer {
-      width: 100%;
       max-width: var(--content-max);
       margin: 0 auto;
-      padding: 10px 4px 0;
-      display: flex;
-      justify-content: flex-end;
+      padding: 10px 4px;
+      text-align: right;
       font-size: 11px;
       color: var(--text-muted);
-    }
-
-    footer span {
-      opacity: 0.9;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .page-shell {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .nav-column {
-        display: none;
-      }
-      .floating-nav {
-        display: block;
-      }
-      .about-header {
-        grid-template-columns: auto minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      main {
-        padding: 20px 12px 60px;
-      }
-      .about-card {
-        padding: 16px 14px 18px;
-      }
-      .two-col-list {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .headshot-wrap {
-        width: 72px;
-        height: 72px;
-      }
-      .name-row h1 {
-        font-size: 20px;
-      }
     }
   </style>
 </head>
+
 <body>
   <main id="top">
     <div class="page-shell">
-      <!-- Left column -->
+      <!-- LEFT COLUMN -->
       <section class="about-column" id="content-start">
         <header class="about-header">
-          <div class="headshot-wrap">
-            <div class="headshot-inner">MB</div>
-          </div>
-          <div class="about-heading-block">
+          <div class="headshot-wrap"><div class="headshot-inner">MB</div></div>
+          <div>
             <div class="name-row">
               <h1>Melissa Berthold</h1>
-              <span class="wave-tag">Coastal systems, enterprise clarity</span>
+              <span class="wave-tag">Coastal systems</span>
             </div>
             <p class="role-line">
-              Senior Technical Writer · <span>Architecture-to-operations documentation, litigation-grade clarity, and systems storytelling</span>
+              Senior Technical Writer · <span>Architecture-to-operations clarity and systems storytelling</span>
             </p>
-            <p class="about-subline">
-              I design documentation ecosystems that hold up under scrutiny—by judges, architects, and operations teams alike.
-            </p>
+            <p class="about-subline">I design documentation ecosystems that help teams understand, align, and deliver.</p>
           </div>
         </header>
 
         <article class="about-card">
-          <!-- About -->
+
+          <!-- ABOUT -->
           <section class="section" id="about">
-            <div class="section-header">
-              <div class="section-icon">A</div>
-              <h2 class="section-title">About</h2>
-            </div>
-            <div class="section-body">
-              <ul class="two-col-list">
-                <li><span>Senior technical writer specializing in complex systems, enterprise platforms, and high-stakes environments.</span></li>
-                <li><span>Architects documentation that aligns legal, technical, and operational perspectives without losing nuance.</span></li>
-                <li><span>Experienced in turning architecture diagrams and SME conversations into durable, reusable documentation assets.</span></li>
-                <li><span>Comfortable working at the intersection of engineering, product, legal, and operations teams.</span></li>
-                <li><span>Known for calm, structured communication in ambiguous, high-pressure, or adversarial contexts.</span></li>
-                <li><span>Builds documentation systems that scale: templates, standards, and patterns that teams can actually use.</span></li>
-                <li><span>Equally at home in code-adjacent docs, process flows, and narrative explanations for non-technical stakeholders.</span></li>
-                <li><span>Anchored in clarity, accountability, and traceability—every artifact has a purpose and an owner.</span></li>
-              </ul>
-            </div>
+            <div class="section-header">🧩 <h2 class="section-title">About</h2></div>
+            <ul class="two-col-list">
+              <li>Senior technical writer specializing in complex systems and enterprise platforms.</li>
+              <li>Transforms architecture and SME input into clear, durable documentation.</li>
+              <li>Works comfortably across engineering, product, and operations.</li>
+              <li>Known for calm, structured communication in ambiguous environments.</li>
+              <li>Builds documentation systems that scale: templates, standards, and patterns.</li>
+              <li>Strong at bridging conceptual designs with implementation realities.</li>
+              <li>Writes for clarity, reuse, and decision-making.</li>
+              <li>Anchored in accountability, traceability, and thoughtful structure.</li>
+            </ul>
           </section>
 
-          <!-- Core strengths -->
+          <!-- CORE STRENGTHS -->
           <section class="section" id="core-strengths">
-            <div class="section-header">
-              <div class="section-icon">S</div>
-              <h2 class="section-title">Core strengths</h2>
-            </div>
-            <div class="section-body">
-              <ul class="two-col-list">
-                <li><span>Architecture-to-operations documentation</span><br><span class="muted">Bridging conceptual designs with the realities of implementation and support.</span></li>
-                <li><span>Systems thinking</span><br><span class="muted">Seeing how tools, teams, and processes interact—and writing for the whole system.</span></li>
-                <li><span>Litigation-calibrated clarity</span><br><span class="muted">Writing that can withstand scrutiny from legal, compliance, and external reviewers.</span></li>
-                <li><span>Information design</span><br><span class="muted">Structuring content so readers can scan, decide, and act without friction.</span></li>
-                <li><span>Stakeholder alignment</span><br><span class="muted">Translating between architects, engineers, operations, and leadership without losing intent.</span></li>
-                <li><span>Content governance</span><br><span class="muted">Defining standards, templates, and review flows that keep documentation trustworthy.</span></li>
-                <li><span>Risk-aware communication</span><br><span class="muted">Surfacing constraints, assumptions, and edge cases without overwhelming the reader.</span></li>
-                <li><span>Calm execution</span><br><span class="muted">Bringing order, structure, and momentum to complex, multi-stakeholder projects.</span></li>
-              </ul>
-            </div>
+            <div class="section-header">⚙️ <h2 class="section-title">Core strengths</h2></div>
+            <ul class="two-col-list">
+              <li>Architecture-to-operations documentation</li>
+              <li>Systems thinking</li>
+              <li>Information design</li>
+              <li>Stakeholder alignment</li>
+              <li>Content governance</li>
+              <li>Risk-aware communication</li>
+              <li>Pattern spotting</li>
+              <li>Calm execution</li>
+            </ul>
           </section>
 
-          <!-- How I work -->
+          <!-- HOW I WORK -->
           <section class="section" id="how-i-work">
-            <div class="section-header">
-              <div class="section-icon">W</div>
-              <h2 class="section-title">How I work</h2>
-            </div>
-            <div class="section-body">
-              <ul class="two-col-list">
-                <li><span>Start with the system</span><br><span class="muted">I map the architecture, actors, and flows before I write a single sentence.</span></li>
-                <li><span>Clarify the audience</span><br><span class="muted">Every artifact has a primary reader and a decision or action it supports.</span></li>
-                <li><span>Ask adversarial questions</span><br><span class="muted">What breaks? Who’s accountable? What would a skeptical reviewer challenge?</span></li>
-                <li><span>Design the container</span><br><span class="muted">Templates, sections, and patterns come first—then content fills the structure.</span></li>
-                <li><span>Write for reuse</span><br><span class="muted">I look for patterns that can become standards, not one-off documents.</span></li>
-                <li><span>Collaborate with SMEs</span><br><span class="muted">I treat interviews as joint problem-solving, not transcription.</span></li>
-                <li><span>Iterate with intent</span><br><span class="muted">Each revision has a purpose: clarity, alignment, or decision-readiness.</span></li>
-                <li><span>Measure impact</span><br><span class="muted">I care whether documentation changes behavior, reduces risk, or accelerates delivery.</span></li>
-              </ul>
-            </div>
+            <div class="section-header">💡 <h2 class="section-title">How I work</h2></div>
+            <ul class="two-col-list">
+              <li>Start with the system</li>
+              <li>Clarify the audience</li>
+              <li>Ask practical, grounding questions</li>
+              <li>Design the container before filling it</li>
+              <li>Write for reuse and scale</li>
+              <li>Collaborate closely with SMEs</li>
+              <li>Iterate with intent</li>
+              <li>Measure impact and clarity</li>
+            </ul>
           </section>
 
-          <!-- Special capabilities -->
+          <!-- SPECIAL CAPABILITIES -->
           <section class="section" id="special-capabilities">
-            <div class="section-header">
-              <div class="section-icon">C</div>
-              <h2 class="section-title">Special capabilities</h2>
-            </div>
-            <div class="section-body">
-              <ul class="two-col-list">
-                <li><span>Guardianship and high-stakes workflows</span><br><span class="muted">Experience with guardianship, legal, and sensitive decision pathways.</span></li>
-                <li><span>Adversarial anticipation</span><br><span class="muted">Writing as if it will be challenged—by auditors, opposing counsel, or regulators.</span></li>
-                <li><span>Portfolio and brand alignment</span><br><span class="muted">Ensuring documentation reflects the organization’s risk posture and voice.</span></li>
-                <li><span>Cross-domain fluency</span><br><span class="muted">Comfortable moving between legal, technical, and operational language.</span></li>
-                <li><span>Content conversion</span><br><span class="muted">Transforming Word, PDFs, and ad hoc artifacts into structured, web-ready content.</span></li>
-                <li><span>Pattern spotting</span><br><span class="muted">Identifying repeatable structures that reduce future writing and review effort.</span></li>
-                <li><span>Executive-ready narratives</span><br><span class="muted">Summarizing complex systems in a way leaders can act on quickly.</span></li>
-                <li><span>Calm in complexity</span><br><span class="muted">Holding ambiguity without losing momentum or precision.</span></li>
-              </ul>
-            </div>
+            <div class="section-header">✨ <h2 class="section-title">Special capabilities</h2></div>
+            <ul class="two-col-list">
+              <li>Cross-domain fluency</li>
+              <li>Content conversion and modernization</li>
+              <li>Executive-ready narratives</li>
+              <li>Process and workflow clarity</li>
+              <li>Template and standard creation</li>
+              <li>Systems mapping</li>
+              <li>Operational alignment</li>
+              <li>Calm in complexity</li>
+            </ul>
           </section>
+
         </article>
       </section>
 
-      <!-- Right column: mini-nav -->
-      <aside class="nav-column" aria-label="Section navigation">
+      <!-- RIGHT COLUMN -->
+      <aside class="nav-column">
         <nav class="nav-card">
-          <div class="nav-label">On this page</div>
           <ul class="nav-list">
-            <li>
-              <button data-target="about" class="active">
-                <span>About</span>
-                <div class="dot"></div>
-              </button>
-            </li>
-            <li>
-              <button data-target="core-strengths">
-                <span>Core strengths</span>
-                <div class="dot"></div>
-              </button>
-            </li>
-            <li>
-              <button data-target="how-i-work">
-                <span>How I work</span>
-                <div class="dot"></div>
-              </button>
-            </li>
-            <li>
-              <button data-target="special-capabilities">
-                <span>Special capabilities</span>
-                <div class="dot"></div>
-              </button>
-            </li>
+            <li><button data-target="about" class="active">About</button></li>
+            <li><button data-target="core-strengths">Core strengths</button></li>
+            <li><button data-target="how-i-work">How I work</button></li>
+            <li><button data-target="special-capabilities">Special capabilities</button></li>
           </ul>
-          <p class="nav-footer-note">
-            This page is part of a broader portfolio system designed for clarity, traceability, and ease of review.
-          </p>
         </nav>
       </aside>
     </div>
   </main>
 
-  <!-- Floating mobile nav -->
-  <div class="floating-nav">
-    <button id="open-nav">Sections ▾</button>
-  </div>
-
-  <!-- Jump-to-content arrow -->
-  <button class="jump-content" id="jump-content" aria-label="Jump to content start">↑</button>
-
-  <!-- Back-to-top -->
-  <button class="back-to-top" id="back-to-top" aria-label="Back to top">Top</button>
-
-  <footer>
-    <span>Designed by Melissa Berthold</span>
-  </footer>
+  <footer><span>Designed by Melissa Berthold</span></footer>
 
   <script>
-    // Mini-nav scroll behavior
     const navButtons = document.querySelectorAll(".nav-list button");
-    const sections = Array.from(document.querySelectorAll(".section"));
-    const jumpContent = document.getElementById("jump-content");
-    const backToTop = document.getElementById("back-to-top");
-    const contentStart = document.getElementById("content-start");
-    const floatingNavBtn = document.getElementById("open-nav");
+    const sections = document.querySelectorAll(".section");
 
     navButtons.forEach(btn => {
       btn.addEventListener("click", () => {
-        const targetId = btn.getAttribute("data-target");
-        const target = document.getElementById(targetId);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+        const target = document.getElementById(btn.dataset.target);
+        target.scrollIntoView({ behavior: "smooth" });
       });
     });
 
-    // Highlight active section
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            navButtons.forEach(btn => {
-              btn.classList.toggle("active", btn.getAttribute("data-target") === id);
-            });
-          }
-        });
-      },
-      { rootMargin: "-45% 0px -45% 0px", threshold: 0.1 }
-    );
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navButtons.forEach(btn =>
+            btn.classList.toggle("active", btn.dataset.target === entry.target.id)
+          );
+        }
+      });
+    }, { threshold: 0.3 });
 
     sections.forEach(section => observer.observe(section));
-
-    // Scroll helpers
-    window.addEventListener("scroll", () => {
-      const y = window.scrollY || window.pageYOffset;
-
-      // Jump-to-content arrow: fade in after ~200px
-      if (y > 200) {
-        jumpContent.classList.add("visible");
-      } else {
-        jumpContent.classList.remove("visible");
-      }
-
-      // Back-to-top: fade in after ~400px
-      if (y > 400) {
-        backToTop.classList.add("visible");
-      } else {
-        backToTop.classList.remove("visible");
-      }
-    });
-
-    jumpContent.addEventListener("click", () => {
-      if (contentStart) {
-        contentStart.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
-
-    backToTop.addEventListener("click", () => {
-      document.getElementById("top").scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
-    // Simple mobile nav behavior: scroll to top of content
-    floatingNavBtn.addEventListener("click", () => {
-      if (contentStart) {
-        contentStart.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
   </script>
 </body>
 </html>
