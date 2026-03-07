@@ -50,26 +50,56 @@
             text-decoration: underline;
         }
 
-        .about {
-            max-width: 800px;
+        .container {
+            max-width: 900px;
             margin: auto;
-            line-height: 1.6;
-            font-weight: 300;
         }
 
-        .about h2 {
+        .headshot {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(6px);
+            margin: 0 auto 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffffcc;
+            font-size: 0.9rem;
+        }
+
+        .resume-button {
+            display: block;
+            width: fit-content;
+            margin: 0 auto 40px auto;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 8px;
+            backdrop-filter: blur(6px);
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .resume-button:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
             font-weight: 600;
-            margin-top: 20px;
+            margin-top: 30px;
             margin-bottom: 10px;
         }
 
-        .about ul {
+        ul {
             padding-left: 20px;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        .about li {
+        li {
             margin-bottom: 6px;
         }
     </style>
@@ -88,7 +118,14 @@
         <a href="contact.html">Contact</a>
     </nav>
 
-    <div class="about">
+    <div class="container">
+
+        <div class="headshot">Headshot Placeholder</div>
+
+        <a class="resume-button" href="Melissa-Berthold-Resume.pdf" target="_blank">
+            Download Resume
+        </a>
+
         <h2>About Melissa Berthold</h2>
         <p>
             Senior Technical Writer specializing in enterprise IT, infrastructure, and SaaS platforms. I focus on making complex technical information clear, accurate, and usable for engineering, operations, and customer facing audiences.
@@ -133,6 +170,7 @@
             <li>ITIL aligned documentation for incident, change, and problem</li>
             <li>Process artifacts including RACI, requirements, and deployment materials</li>
         </ul>
+
     </div>
 
 </body>
