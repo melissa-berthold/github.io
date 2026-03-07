@@ -31,6 +31,38 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* TOP NAV */
+    nav.top-nav {
+      width: 100%;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: center;
+      background: rgba(2, 8, 23, 0.7);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    nav.top-nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 14px;
+    }
+
+    nav.top-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    nav.top-nav a:hover {
+      color: var(--accent-sand);
+    }
+
+    /* PAGE LAYOUT */
     main {
       display: flex;
       justify-content: center;
@@ -41,24 +73,62 @@
       width: 100%;
       max-width: var(--content-max);
       display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+      grid-template-columns: 220px 1fr;
       gap: 32px;
       position: relative;
     }
 
-    .page-shell::before {
-      content: "";
-      position: fixed;
-      top: 10%;
-      left: 50%;
-      width: 720px;
-      height: 720px;
-      transform: translateX(-50%);
-      background: radial-gradient(circle, rgba(79, 179, 255, 0.18), transparent 60%);
-      z-index: -1;
+    /* LEFT MINI PANEL */
+    .left-panel {
+      position: sticky;
+      top: 100px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-right: 8px;
     }
 
-    /* Header */
+    .left-panel button {
+      background: transparent;
+      border: none;
+      text-align: left;
+      padding: 8px 10px;
+      border-radius: var(--radius-pill);
+      color: var(--text-muted);
+      font-size: 13px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .left-panel button.active {
+      background: radial-gradient(circle, rgba(244, 215, 161, 0.18), rgba(79, 179, 255, 0.18));
+      color: var(--accent-sand);
+    }
+
+    /* MOBILE LEFT PANEL */
+    .mobile-sections {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 40;
+    }
+
+    .mobile-sections button {
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: radial-gradient(circle at top left, #f4d7a1, #4fb3ff);
+      color: #020617;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      cursor: pointer;
+    }
+
+    /* HEADER CARD */
     .about-header {
       background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
       border: 1px solid rgba(148, 163, 184, 0.45);
@@ -69,16 +139,6 @@
       gap: 16px;
       box-shadow: var(--shadow-soft);
       position: relative;
-    }
-
-    .about-header::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at top left, rgba(244, 215, 161, 0.18), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(79, 179, 255, 0.16), transparent 55%);
-      z-index: -1;
     }
 
     .headshot-wrap {
@@ -121,12 +181,7 @@
       color: #0b1220;
     }
 
-    .role-line { font-size: 13px; color: var(--text-muted); }
-    .role-line span { color: var(--accent-blue); }
-
-    .about-subline { font-size: 12px; color: var(--text-muted); }
-
-    /* Card */
+    /* CONTENT CARD */
     .about-card {
       background: var(--bg-card-soft);
       border: 1px solid var(--border-subtle);
@@ -135,8 +190,13 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .section { padding: 14px 0; }
-    .section + .section { border-top: 1px solid rgba(148, 163, 184, 0.28); }
+    .section {
+      padding: 14px 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid rgba(148, 163, 184, 0.28);
+    }
 
     .section-header {
       display: flex;
@@ -179,36 +239,7 @@
       background: radial-gradient(circle, #f4d7a1, #ff9b7a);
     }
 
-    /* Sticky nav */
-    .nav-card {
-      position: sticky;
-      top: 24px;
-      background: var(--bg-card);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      border-radius: var(--radius-lg);
-      padding: 14px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .nav-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
-    .nav-list button {
-      background: transparent;
-      border: none;
-      padding: 6px 8px;
-      border-radius: 999px;
-      color: var(--text-muted);
-      text-align: left;
-      cursor: pointer;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .nav-list button.active {
-      background: radial-gradient(circle, rgba(244, 215, 161, 0.18), rgba(79, 179, 255, 0.18));
-      color: var(--accent-sand);
-    }
-
+    /* FOOTER */
     footer {
       max-width: var(--content-max);
       margin: 0 auto;
@@ -217,14 +248,57 @@
       font-size: 11px;
       color: var(--text-muted);
     }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .page-shell {
+        grid-template-columns: 1fr;
+      }
+      .left-panel {
+        display: none;
+      }
+      .mobile-sections {
+        display: block;
+      }
+      .two-col-list {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html" style="color: var(--accent-sand);">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
   <main id="top">
     <div class="page-shell">
-      <!-- LEFT COLUMN -->
+
+      <!-- LEFT MINI PANEL -->
+      <aside class="left-panel">
+        <button data-target="about" class="active">🧩 About</button>
+        <button data-target="core-strengths">⚙️ Core strengths</button>
+        <button data-target="how-i-work">💡 How I work</button>
+        <button data-target="special-capabilities">✨ Special capabilities</button>
+      </aside>
+
+      <!-- MOBILE SECTIONS BUTTON -->
+      <div class="mobile-sections">
+        <button id="mobile-sections-btn">Sections ▾</button>
+      </div>
+
+      <!-- MAIN CONTENT -->
       <section class="about-column" id="content-start">
+
         <header class="about-header">
           <div class="headshot-wrap"><div class="headshot-inner">MB</div></div>
           <div>
@@ -303,25 +377,13 @@
 
         </article>
       </section>
-
-      <!-- RIGHT COLUMN -->
-      <aside class="nav-column">
-        <nav class="nav-card">
-          <ul class="nav-list">
-            <li><button data-target="about" class="active">About</button></li>
-            <li><button data-target="core-strengths">Core strengths</button></li>
-            <li><button data-target="how-i-work">How I work</button></li>
-            <li><button data-target="special-capabilities">Special capabilities</button></li>
-          </ul>
-        </nav>
-      </aside>
     </div>
   </main>
 
   <footer><span>Designed by Melissa Berthold</span></footer>
 
   <script>
-    const navButtons = document.querySelectorAll(".nav-list button");
+    const navButtons = document.querySelectorAll(".left-panel button");
     const sections = document.querySelectorAll(".section");
 
     navButtons.forEach(btn => {
@@ -343,5 +405,6 @@
 
     sections.forEach(section => observer.observe(section));
   </script>
+
 </body>
 </html>
