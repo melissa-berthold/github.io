@@ -8,27 +8,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
+        /* Parallax background */
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
             color: white;
-            background: linear-gradient(to bottom, #8fbfd3, #6aa9bd, #0b4f6c);
+            background: linear-gradient(to bottom, #0a3d62, #3c8dad, #9ad4e3);
+            background-attachment: fixed;
+            background-size: cover;
             min-height: 100vh;
             padding: 40px;
+        }
+
+        /* Fade-in on load */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Fade-in on scroll */
+        .fade-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         h1 {
             text-align: center;
             font-weight: 600;
             margin-bottom: 10px;
+            animation: fadeIn 1s ease;
         }
 
         p.subtitle {
             text-align: center;
             font-weight: 300;
             margin-bottom: 30px;
+            animation: fadeIn 1.2s ease;
         }
 
+        /* NAVIGATION */
         nav {
             width: 100%;
             display: flex;
@@ -38,23 +61,48 @@
             background: rgba(0, 0, 0, 0.15);
             backdrop-filter: blur(6px);
             margin-bottom: 40px;
+            border-radius: 8px;
+            animation: fadeIn 1.4s ease;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 400;
+            position: relative;
+            padding-bottom: 4px;
+            transition: 0.3s ease;
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        /* Soft animated underline */
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         .container {
             max-width: 900px;
             margin: auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.10);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+            animation: fadeIn 1.6s ease;
         }
 
+        /* Headshot with floating glow ring */
         .headshot {
             width: 180px;
             height: 180px;
@@ -68,14 +116,22 @@
             color: #ffffffdd;
             font-size: 1.4rem;
             font-weight: 600;
-            border: 2px solid rgba(255, 255, 255, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            transition: 0.4s ease;
+            box-shadow: 0 0 18px rgba(255, 255, 255, 0.4);
         }
 
+        .headshot:hover {
+            box-shadow: 0 0 28px rgba(255, 255, 255, 0.9);
+            transform: scale(1.04);
+        }
+
+        /* Resume button */
         .resume-button {
             display: block;
             width: fit-content;
             margin: 0 auto 40px auto;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background: rgba(255, 255, 255, 0.25);
             border-radius: 8px;
             backdrop-filter: blur(6px);
@@ -83,16 +139,43 @@
             text-decoration: none;
             font-weight: 400;
             letter-spacing: 0.5px;
+            transition: 0.3s ease;
         }
 
         .resume-button:hover {
-            text-decoration: underline;
+            box-shadow: 0 0 18px rgba(255, 255, 255, 1);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
         }
 
+        /* Section headers with icons */
         h2 {
             font-weight: 600;
-            margin-top: 30px;
+            margin-top: 40px;
             margin-bottom: 10px;
+            transition: 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2:hover {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+            transform: translateX(4px);
+        }
+
+        .icon {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Section dividers */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.35);
+            margin: 30px 0;
+            border-radius: 2px;
         }
 
         ul {
@@ -103,6 +186,18 @@
 
         li {
             margin-bottom: 6px;
+        }
+
+        /* Soft footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.85rem;
+            opacity: 0.85;
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(6px);
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -128,52 +223,93 @@
             Download Resume
         </a>
 
-        <h2>About Melissa Berthold</h2>
-        <p>
-            Senior Technical Writer specializing in enterprise IT, infrastructure, and SaaS platforms. I focus on making complex technical information clear, accurate, and usable for engineering, operations, and customer facing audiences.
-        </p>
+        <div class="fade-section">
+            <h2><span class="icon">📘</span>About Melissa Berthold</h2>
+            <p>
+                Senior Technical Writer specializing in enterprise IT, infrastructure, and SaaS platforms. I focus on making complex technical information clear, accurate, and usable for engineering, operations, and customer facing audiences.
+            </p>
+        </div>
 
-        <h2>Core strengths</h2>
-        <ul>
-            <li>Architecture and infrastructure documentation</li>
-            <li>Customer facing technical documentation and proposals</li>
-            <li>Documentation lifecycle ownership from intake through versioning</li>
-            <li>Knowledge base articles and user focused content</li>
-            <li>Release notes, deployment guides, and implementation guides</li>
-            <li>Repository governance, taxonomy, and content structure</li>
-            <li>SaaS platform and network environment documentation</li>
-            <li>Statement of work aligned deliverables</li>
-        </ul>
+        <div class="divider"></div>
 
-        <h2>How I work</h2>
-        <ul>
-            <li>Align documentation with Jira and Azure DevOps workflows</li>
-            <li>Apply structured authoring, templates, and reusable components</li>
-            <li>Collaborate closely with architects, engineers, product, and operations</li>
-            <li>Maintain audit ready, consistent, and clear documentation standards</li>
-            <li>Prioritize accuracy through SME validation and targeted questions</li>
-            <li>Support Agile and SAFe delivery and CI/CD release cycles</li>
-        </ul>
+        <div class="fade-section">
+            <h2><span class="icon">⚙️</span>Core strengths</h2>
+            <ul>
+                <li>Architecture and infrastructure documentation</li>
+                <li>Customer facing technical documentation and proposals</li>
+                <li>Documentation lifecycle ownership from intake through versioning</li>
+                <li>Knowledge base articles and user focused content</li>
+                <li>Release notes, deployment guides, and implementation guides</li>
+                <li>Repository governance, taxonomy, and content structure</li>
+                <li>SaaS platform and network environment documentation</li>
+                <li>Statement of work aligned deliverables</li>
+            </ul>
+        </div>
 
-        <h2>Industries supported</h2>
-        <ul>
-            <li>Enterprise IT</li>
-            <li>Financial services</li>
-            <li>Government</li>
-            <li>Healthcare</li>
-            <li>Telecommunications</li>
-        </ul>
+        <div class="divider"></div>
 
-        <h2>Special capabilities</h2>
-        <ul>
-            <li>AI enabled documentation and knowledge system integration</li>
-            <li>Compliance sensitive documentation for regulated environments</li>
-            <li>DITA and XML structured authoring</li>
-            <li>ITIL aligned documentation for incident, change, and problem</li>
-            <li>Process artifacts including RACI, requirements, and deployment materials</li>
-        </ul>
+        <div class="fade-section">
+            <h2><span class="icon">🧩</span>How I work</h2>
+            <ul>
+                <li>Align documentation with Jira and Azure DevOps workflows</li>
+                <li>Apply structured authoring, templates, and reusable components</li>
+                <li>Collaborate closely with architects, engineers, product, and operations</li>
+                <li>Maintain audit ready, consistent, and clear documentation standards</li>
+                <li>Prioritize accuracy through SME validation and targeted questions</li>
+                <li>Support Agile and SAFe delivery and CI/CD release cycles</li>
+            </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="fade-section">
+            <h2><span class="icon">🌐</span>Industries supported</h2>
+            <ul>
+                <li>Enterprise IT</li>
+                <li>Financial services</li>
+                <li>Government</li>
+                <li>Healthcare</li>
+                <li>Telecommunications</li>
+            </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="fade-section">
+            <h2><span class="icon">💡</span>Special capabilities</h2>
+            <ul>
+                <li>AI enabled documentation and knowledge system integration</li>
+                <li>Compliance sensitive documentation for regulated environments</li>
+                <li>DITA and XML structured authoring</li>
+                <li>ITIL aligned documentation for incident, change, and problem</li>
+                <li>Process artifacts including RACI, requirements, and deployment materials</li>
+            </ul>
+        </div>
 
     </div>
+
+    <footer>
+        © 2026 Melissa Berthold — Technical Writer & Documentation Strategist
+    </footer>
+
+    <script>
+        /* Fade-in on scroll logic */
+        const sections = document.querySelectorAll('.fade-section');
+
+        function revealOnScroll() {
+            const trigger = window.innerHeight * 0.85;
+
+            sections.forEach(section => {
+                const top = section.getBoundingClientRect().top;
+                if (top < trigger) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
 
 </body>
 </html>
