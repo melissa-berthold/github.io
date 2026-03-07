@@ -1,61 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>About | Melissa Berthold</title>
-  <style>
-    body { margin: 0; font-family: Inter, Arial, sans-serif; background: #f7f9fb; color: #1a1a1a; line-height: 1.6; }
-    header { background: #0b4f6c; color: white; padding: 40px 20px 30px; text-align: center; }
-    h1 { margin: 0; font-size: 2.4rem; letter-spacing: 1px; }
-    .tagline { margin-top: 8px; font-size: 1rem; opacity: 0.9; }
-    nav { margin-top: 18px; }
-    nav a { color: white; margin: 0 12px; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
-    nav a:hover { text-decoration: underline; }
-    main { max-width: 960px; margin: 40px auto 60px; padding: 0 20px; }
-    h2 { color: #0b4f6c; margin-bottom: 10px; font-size: 1.4rem; }
-    p { margin-bottom: 16px; }
-    footer { text-align: center; padding: 30px 20px; background: #e8eef2; font-size: 0.9rem; }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Melissa Berthold</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            background: linear-gradient(to bottom, #b7d9e8, #7fb7c9, #0b4f6c);
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            text-align: center;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px 0;
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(6px);
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .about {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <h1>About Me</h1>
-    <p class="tagline">Senior Technical Writer · IT · Infrastructure · Networking · Systems Operations</p>
+
+    <h1>Melissa Berthold</h1>
+    <p class="subtitle">About</p>
+
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="services.html">Services</a>
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
     </nav>
-  </header>
 
-  <main>
-    <h2>Who I Am</h2>
-    <p>
-      I am a Senior Technical Writer specializing in IT infrastructure, networking, systems operations,
-      and enterprise‑level documentation. My work supports engineering, operations, and product teams by
-      transforming complex technical concepts into clear, structured, and actionable content.
-    </p>
+    <div class="about">
+        <p>Placeholder bio content goes here.</p>
+    </div>
 
-    <h2>My Approach</h2>
-    <p>
-      I focus on clarity, consistency, and operational precision. My documentation is built to reduce risk,
-      accelerate onboarding, and improve cross‑team alignment. I create content that stands up to audits,
-      supports real‑world troubleshooting, and scales with organizational growth.
-    </p>
-
-    <h2>What Drives My Work</h2>
-    <p>
-      I believe documentation should be intuitive, discoverable, and built for the people who rely on it
-      every day. My goal is to deliver content that empowers teams, strengthens processes, and elevates
-      the overall technical experience.
-    </p>
-  </main>
-
-  <footer>
-    © 2026 Melissa Berthold — Technical Writing Portfolio
-  </footer>
 </body>
 </html>
